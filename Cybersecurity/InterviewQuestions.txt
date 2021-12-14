@@ -1,16 +1,20 @@
 Question 1: Cloud Access Control
 How would you control access to a cloud network?
-
+With NSG and SSH protocols.
 
 Restate the Problem
-
+A company would like cloud networking, and you would like to know how I would secure it by providing examples.
 
 Provide a Concrete Example Scenario
 
-In Project 1, did you deploy an on-premises or cloud network? I deployed a cloud network using Azure.
-Did you have to configure access controls to this network? I configured access controls by disabling ports and only allowing access to admin through SSH.
-What kinds of access controls did you configure, and why were they necessary? You want to have a secure network so that only admin can access and remote access through SSH protect the crown jewels.
-How do these details relate to the interview question? This shows how to control access to a cloud network through a firewalls, port security, load balancers , containers, and monitoring Files and metrics with Elk container using Kibana.
+In Project 1, did you deploy an on-premises or cloud network? 
+I deployed a cloud network using Azure.
+Did you have to configure access controls to this network? 
+I configured access controls by disabling most ports and only allowing access to admin through SSH.
+What kinds of access controls did you configure, and why were they necessary? 
+You want to have a secure network so that only admin can remote access securely through SSH protect the valuables.
+How do these details relate to the interview question? 
+This shows how to build a cloud network with controled access through firewalls, port security, load balancers , containers, as well as monitoring files and metrics with an Elk container using Filebeat and Metricbeat on Kibana.
 
 
 
@@ -18,31 +22,44 @@ Explain the Solution Requirements
 
 
 In Project 1, what kinds of access controls did you have to implement? Consider:
-
-NSGs around the VNet? Around the VMs? We created a Jumpbox vm protected by Network Security Group 1 in order for the Jumpbox VM, that hosts ansible, to maintain security for setting up Web 1 and Web 2 containers. We also put a firewall at point of entry to the Elk container to provide add security and monitoring.
-Local firewalls (ufw, etc.) on each VM? Network Security Group 1
-Protocol allow/deny lists? The only access to the network is through my home public IP. Whitelist 
-
-
-
+NSGs around the VNet? Around the VMs? \
+We created a Jumpbox VM, protected by Network Security Group 1, in order for the Jumpbox VM, which hosts ansible, to maintain security for setting up Web 1 and Web 2 containers. We also put a firewall at SSH point of entry to the Elk container to provide add security and monitoring.
+Local firewalls (ufw, etc.) on each VM? 
+Network Security Group 1
+Protocol allow/deny lists? 
+The only access to the network is through whitelisted home public IP.  
 
 What did each access control achieve, and why was this restriction necessary for the project?
-
+By only allowing access through a whitelisted IP and by using firewalls and monitoring the network, I created a secure and scalable network.
 
 
 
 Explain the Solution Details
 
-Which rules do you set for each NSG in the network? .  Close all other ports besides 80 http and 22 ssh / elk nsg 22 ssh jumpbox , 5601 Kibana   
-How does access to the jump box work? You have to SSH using a public key , port 22 only, which only  allows access from my home public IP. So if I was an admin working remotley this would be ideal.
-How does access from the jump box to the web servers work? The jumpbox private ip 10.0.0.4 is authorized to ssh over port 22 to both Web 1 and Web 2 private IP.
+Which rules do you set for each NSG in the network? .  
+Close all access ports besides 80 http and 22 ssh for Jumpbox.
+Close all access ports on Elk and nsg beside  22 ssh and 5601.   
+
+How does access to the jump box work? 
+You have to SSH using a public key on port 22 only, which only allows access from my home public IP. So if I was an admin working remotley this would be ideal.
+
+How does access from the jump box to the web servers work? 
+The Jumpbox private ip 10.0.0.4 is authorized to ssh over port 22 to both Web 1 and Web 2 private IP.
 
 
 
 Identify Advantages/Disadvantages of the Solution
 
-Does your solution scale? yes because when you use playbook to setup servers, you can always add additional servers.
-Is there a better solution than a jump box? VPN could be more secure but doesnt allow for remote access 
-What are the disadvantages of implementing a VPN that kept you from doing it this time? It doesn't allow for remote access and it is not as scalable 
-What are the advantages of a VPN? 
+Does your solution scale? 
+yes because when you use playbook to setup servers, you can always add additional servers.
+
+Is there a better solution than a jump box? 
+VPN could be more secure. 
+
+What are the disadvantages of implementing a VPN that kept you from doing it this time? 
+It doesn't allow for remote access and it is not as scalable 
+
+What are the advantages of a VPN?
+Offers the most secure network.
+
 When is it appropriate to use a VPN?
