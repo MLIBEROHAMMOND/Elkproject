@@ -102,4 +102,4 @@ http://51.143.33.15:5601/app/kibana#/home
 (Images/kibana.png)
 
 
-_Commands the user will need to run to download the playbook, update the files, etc._
+
