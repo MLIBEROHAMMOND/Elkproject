@@ -101,5 +101,18 @@ Ansible-playbook filebeat-configuration.yml
 http://51.143.33.15:5601/app/kibana#/home
 (Images/kibana.png)
 
-
-
+Commands Used
+sudo docker start elk
+sudo docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -it --name elk sebp/elk:761
+docker container list -a
+curl https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat > /etc/ansible/filebeat-config.yml
+dpkg -i filebeat-7.4.0-amd64.deb
+metricbeat modules enable docker
+metricbeat setup
+ssh-keygen -p -f ~/.ssh/id_rsa
+ansible_python_interpreter=/usr/bin/python3
+touch /etc/ansible/install-elk.yml
+vm.max_map_count to 262144
+sudo docker ps
+curl http://localhost:5601/app/kibana
+nmap -p 80 <elk.vm.external.ip>
