@@ -44,7 +44,7 @@ A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump Box | Yes/No              | 10.0.0.4             |
+| Jump Box | Yes/No              | My IP address            |
 | Web 1    | No                  | 10.0.0.5             |
 | Web 2    | No                  | 10.0.0.9             |
 | Elk      | Yes                 | 10.1.0.4             |
