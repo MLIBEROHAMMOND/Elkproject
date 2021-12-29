@@ -1,36 +1,10 @@
 Cloud Access Control
 
-With cloud networking going strong and adversaries growing more sophisticated, it is important that you control access to your network.  Start by closing all ports that are not needed and limited access to only authorized people.  In my Azure project, I only allowed SSH from my whitelisted home IP.  With NSG and SSH protocols in place, you have a much better chance of maintain control. In Project 1, I did not make a network on-premises, instead it was on a cloud network. 
-I deployed a cloud network using Azure.
-Did you have to configure access controls to this network? 
-I configured access controls by disabling most ports and only allowing access to admin through SSH.
-What kinds of access controls did you configure, and why were they necessary? 
-You want to have a secure network so that only admin can remote access securely through SSH protect the valuables.
-How do these details relate to the interview question? 
-This shows how to build a cloud network with controled access through firewalls, port security, load balancers , containers, as well as monitoring files and metrics with an Elk container using Filebeat and Metricbeat on Kibana.
+With cloud networking going strong and adversaries growing more sophisticated, it is important that you control access to your network.  Start by closing all ports that are not needed and limited access to only authorized people.  In my Azure project, I only allowed SSH from my whitelisted home IP.  With NSG and SSH protocols in place, you have a much better chance of maintaining control. In Project 1, I did not make a network on-premises, instead it was on a cloud network. I configured access controls by disabling most ports and only allowing access to admin through SSH. By whitelisting only my IP address, no other user can access my network. This is important because if the wrong bad actor has access they can setup "backdoors" and hide out for possibly months gaining data access and knowledge about my company's crown jewels. You want to have a secure network so that only admin can remote access securely through SSH in order to protect these valuables. his shows how to build a cloud network with controled access through firewalls, port security, load balancers , containers, as well as monitoring files and metrics with an Elk container using Filebeat and Metricbeat on Kibana.
 
+There are several Explain Solution Requirements to maintain said controls.  Inside my network, I created a Jumpbox VM, protected by Network Security Group 1, in order for the Jumpbox VM, which hosts ansible, to maintain security for setting up Web 1 and Web 2 containers. We also put a firewall at SSH point of entry to the Elk container to provide add security and monitoring. Again, the only access to the network is through whitelisted home public IP. This is very useful as more of the work force has been operating remotely. By only allowing access through a whitelisted IP and by using firewalls and monitoring the network, I created a secure and scalable network.
 
-
-Explain the Solution Requirements
-
-
-In Project 1, what kinds of access controls did you have to implement? Consider:
-NSGs around the VNet? Around the VMs? \
-We created a Jumpbox VM, protected by Network Security Group 1, in order for the Jumpbox VM, which hosts ansible, to maintain security for setting up Web 1 and Web 2 containers. We also put a firewall at SSH point of entry to the Elk container to provide add security and monitoring.
-Local firewalls (ufw, etc.) on each VM? 
-Network Security Group 1
-Protocol allow/deny lists? 
-The only access to the network is through whitelisted home public IP.  
-
-What did each access control achieve, and why was this restriction necessary for the project?
-By only allowing access through a whitelisted IP and by using firewalls and monitoring the network, I created a secure and scalable network.
-
-
-
-Explain the Solution Details
-
-Which rules do you set for each NSG in the network? .  
-Close all access ports besides 80 http and 22 ssh for Jumpbox.
+Specifically, I closed all access ports besides 80 http and 22 ssh for Jumpbox.
 Close all access ports on Elk and nsg beside  22 ssh and 5601.   
 
 How does access to the jump box work? 
