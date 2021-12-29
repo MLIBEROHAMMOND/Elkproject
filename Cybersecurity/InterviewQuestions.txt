@@ -1,6 +1,6 @@
-Question 1: Cloud Access Control
-How would you control access to a cloud network?
-With NSG and SSH protocols.
+Cloud Access Control
+
+With cloud networking going strong and adversaries growing more sophisticated, it is important that you control access to your network.  Start by closing all ports that are not needed and limited access to only authorized people.  In my Azure project, I only allowed SSH from my whitelisted home IP.  With NSG and SSH protocols in place, you have a much better chance of maintain control.
 
 Restate the Problem
 A company would like cloud networking, and you would like to know how I would secure it by providing examples.
