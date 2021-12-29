@@ -101,7 +101,7 @@ Step 5: Navigate to URL and check that the installation worked as expected.
 http://51.143.33.15:5601/app/kibana#/home
 ![](Images/kibana.png)
 
-Commands Used
+**Commands Used**
 sudo docker start elk
 sudo docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -it --name elk sebp/elk:761
 docker container list -a
