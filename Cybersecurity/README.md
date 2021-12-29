@@ -72,11 +72,11 @@ This ELK server is configured to monitor the following machines:
 - Web 2:10.0.0.9
 
 We have installed the following Beats on these machines:
-- Filebeat
-- Metricbeat
-(Images/monitoring.png)
-(Images/monitoring2.png)
-(Images/monitoring3.png)
+- Filebeat - a lightweight shipper for forwarding and centralizing log data. Installed as an agent on servers, it monitors log files or locations of your specification and forwards them to Elasticsearch or Logstash.
+- Metricbeat -a lightweight shipper that is installed on servers to capture metrics from the operating system. Metricbeat takes the statistics and ships them to the output of your specification such as Elasticsearch and Logstash.
+![](Images/monitoring.png)
+![](Images/monitoring2.png)
+![](Images/monitoring3.png)
 
 These Beats allow us to collect the following information from each machine:
 - Monitor file changes to the system.
@@ -97,10 +97,10 @@ SSH into the control node and follow the steps below:
 - Run the playbook:
 Ansible-playbook filebeat-configuration.yml
 -navigate to URL and check that the installation worked as expected.
-(Images/ansible.png)
+![](Images/ansible.png)
 
 http://51.143.33.15:5601/app/kibana#/home
-(Images/kibana.png)
+![](Images/kibana.png)
 
 Commands Used
 sudo docker start elk
