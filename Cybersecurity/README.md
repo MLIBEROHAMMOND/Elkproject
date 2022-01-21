@@ -9,7 +9,7 @@ This document contains the following details:
   - Beats in Use
   - Machines Being Monitored
 - How to Use the Ansible Build
-![](Diagrams/RG1_plus_Elk.drawio.png)
+![](Diagrams/RG1_plus_Elk2.drawio.png)
 
 ### Description of the Topology
 
